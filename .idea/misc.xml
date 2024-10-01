@@ -5,6 +5,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/live-framework/live-framework-datasource-starter/pom.xml~" />
+        <option value="$PROJECT_DIR$/live-framework/pom.xml~" />
+        <option value="$PROJECT_DIR$/live-app/pom.xml" />
+        <option value="$PROJECT_DIR$/live-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/live-framework/live-framework-redis-starter/pom.xml" />
       </list>
     </option>
   </component>

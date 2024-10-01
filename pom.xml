@@ -17,6 +17,8 @@
         <module>live-common-interface</module>
         <module>live-framework</module>
         <module>live-framework/live-framework-redis-starter</module>
+        <module>live-id-generate-interface</module>
+        <module>live-id-generate-provider</module>
     </modules>
 
     <properties>
