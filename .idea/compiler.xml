@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="live-user-provider" />
+        <module name="live-common-interface" />
         <module name="live-user-interface" />
         <module name="live-api" />
       </profile>
@@ -15,6 +16,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="live-api" options="-parameters" />
+      <module name="live-common-interface" options="-parameters" />
       <module name="live-user-interface" options="-parameters" />
       <module name="live-user-provider" options="-parameters" />
     </option>

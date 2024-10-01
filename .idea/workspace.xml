@@ -4,7 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dddda9d0-fbdf-4074-b1c0-56701dc3bd3d" name="Changes" comment="" />
+    <list default="true" id="dddda9d0-fbdf-4074-b1c0-56701dc3bd3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-common-interface/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-common-interface/src/main/java/org/live/common/interfaces/ConvertBeanUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/dao/mapper/IUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/dao/po/UserPO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/db-sharding.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/src/main/java/org/live/api/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-api/src/main/java/org/live/api/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/target/classes/dubbo.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/target/classes/org/live/api/ApiWebApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-api/target/classes/org/live/api/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/interfaces/IUserRpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/interfaces/IUserRpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-interface/target/classes/org/live/user/interfaces/IUserRpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/rpc/UserRpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/rpc/UserRpcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/dubbo.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/org/live/user/provider/UserProviderApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/org/live/user/provider/rpc/UserRpcImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +49,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
@@ -39,32 +74,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "Spring Boot.ApiWebApplication.executor": "Run",
-    "Spring Boot.UserProviderApplication.executor": "Run",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Diligence/JAVA/live-app/live-api/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiWebApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserProviderApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Diligence/JAVA/live-app/live-api/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Diligence\JAVA\live-app\live-api\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.live.user.provider.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ApiWebApplication">
@@ -102,6 +143,7 @@
     </configuration>
     <configuration name="UserProviderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="live-user-provider" />
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.live.user.provider.UserProviderApplication" />
       <extension name="coverage">
         <pattern>
@@ -109,6 +151,12 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,7 +185,8 @@
       <option name="presentableId" value="Default" />
       <updated>1727702472205</updated>
       <workItem from="1727708212447" duration="5667000" />
-      <workItem from="1727746404262" duration="4605000" />
+      <workItem from="1727746404262" duration="7050000" />
+      <workItem from="1727754491764" duration="5168000" />
     </task>
     <servers />
   </component>
@@ -147,5 +196,9 @@
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
