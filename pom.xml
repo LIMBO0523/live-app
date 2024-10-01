@@ -16,6 +16,7 @@
         <module>live-api</module>
         <module>live-common-interface</module>
         <module>live-framework</module>
+        <module>live-framework/live-framework-redis-starter</module>
     </modules>
 
     <properties>

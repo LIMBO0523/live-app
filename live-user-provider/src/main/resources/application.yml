@@ -10,7 +10,15 @@ spring:
       maximum-pool-size: 300
       connection-timeout: 4000
       max-lifetime: 60000
-
+  data:
+    redis:
+      port: 6379
+      host: wsl
+      lettuce:
+        pool:
+          min-idle: 10 #最小空闲数
+          max-active: 50 #最大活跃数
+          max-idle: 20 #最大空闲数
 dubbo:
   application:
     name: ${spring.application.name}
@@ -19,3 +27,13 @@ dubbo:
   protocol:
     name: dubbo
     port: 9091
+
+rocketmq:
+  producer:
+    name-server: wsl:9876
+    group-name: ${spring.application.name}
+    retry-times: 3
+    send-time-out: 3000
+  consumer:
+    name-server: wsl:9876
+    group-name: ${spring.application.name}

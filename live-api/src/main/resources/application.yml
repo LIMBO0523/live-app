@@ -1,0 +1,10 @@
+dubbo:
+  application:
+    name: live-api
+    qos-enable: false
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=live-test&&username=LIMBO&&password=LIMBO
+server:
+  port: 18080
+
+
