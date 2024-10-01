@@ -4,37 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dddda9d0-fbdf-4074-b1c0-56701dc3bd3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-common-interface/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-common-interface/src/main/java/org/live/common/interfaces/ConvertBeanUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/dao/mapper/IUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/dao/po/UserPO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/db-sharding.yaml" afterDir="false" />
+    <list default="true" id="dddda9d0-fbdf-4074-b1c0-56701dc3bd3d" name="Changes" comment="&quot;SharingJDBC实战&quot;">
+      <change afterPath="$PROJECT_DIR$/live-framework/live-framework-datasource-starter/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-framework/live-framework-datasource-starter/src/main/java/org/idea/live/framework/datasource/starter/config/SharingJDBCDatasourceAutoInitConnectionConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-framework/live-framework-datasource-starter/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/live-framework/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/src/main/java/org/live/api/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-api/src/main/java/org/live/api/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/target/classes/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/target/classes/dubbo.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/target/classes/org/live/api/ApiWebApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-api/target/classes/org/live/api/controller/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/interfaces/IUserRpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-interface/src/main/java/org/live/user/interfaces/IUserRpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-interface/target/classes/org/live/user/interfaces/IUserRpc.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/live-user-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/rpc/UserRpcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/src/main/java/org/live/user/provider/rpc/UserRpcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/dubbo.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/org/live/user/provider/UserProviderApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/live-user-provider/target/classes/org/live/user/provider/rpc/UserRpcImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live-user-provider/src/main/resources/dubbo.properties" beforeDir="false" afterPath="$PROJECT_DIR$/live-user-provider/src/main/resources/dubbo.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,12 +166,25 @@
       <updated>1727702472205</updated>
       <workItem from="1727708212447" duration="5667000" />
       <workItem from="1727746404262" duration="7050000" />
-      <workItem from="1727754491764" duration="5168000" />
+      <workItem from="1727754491764" duration="6900000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;SharingJDBC实战&quot;">
+      <option name="closed" value="true" />
+      <created>1727769302978</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727769302978</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;SharingJDBC实战&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;SharingJDBC实战&quot;" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

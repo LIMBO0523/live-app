@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="live-user-provider" />
         <module name="live-common-interface" />
+        <module name="live-framework-datasource-starter" />
         <module name="live-user-interface" />
         <module name="live-api" />
       </profile>
@@ -17,6 +18,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="live-api" options="-parameters" />
       <module name="live-common-interface" options="-parameters" />
+      <module name="live-framework" options="" />
+      <module name="live-framework-datasource-starter" options="-parameters" />
       <module name="live-user-interface" options="-parameters" />
       <module name="live-user-provider" options="-parameters" />
     </option>
