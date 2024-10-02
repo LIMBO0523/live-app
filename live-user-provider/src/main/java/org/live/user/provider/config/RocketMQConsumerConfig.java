@@ -10,15 +10,17 @@ import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
-import org.live.user.dto.UserDTO;
+import org.live.user.constants.CacheAsyncDeleteCode;
+import org.live.user.dto.UserCacheAsyncDeleteDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static org.live.user.constants.UserProviderTopicNames.CACHE_ASYNC_DELETE_TOPIC;
 
 /**
  * @Description 消费者配置
@@ -33,9 +35,10 @@ public class RocketMQConsumerConfig implements InitializingBean {
     @Resource
     private RocketMQConsumerProperties rocketMQConsumerProperties;
     @Resource
-    private RedisTemplate<String, UserDTO> redisTemplate; // <String, Object>
+    private RedisTemplate<String, Object> redisTemplate; // <String, Object>
     @Resource
     private UserProviderCacheKeyBuilder userProviderCacheKeyBuilder;
+
 
     public void initConsumer() {
         try {
@@ -44,17 +47,18 @@ public class RocketMQConsumerConfig implements InitializingBean {
             consumer.setConsumerGroup(rocketMQConsumerProperties.getGroupName());
             consumer.setConsumeMessageBatchMaxSize(1);
             consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-            consumer.subscribe("user-update-cache", "*");
+            consumer.subscribe(CACHE_ASYNC_DELETE_TOPIC, "*");
             consumer.setMessageListener(new MessageListenerConcurrently() {
                 @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
-                    UserDTO userDTO = JSON.parseObject(new String(msgs.get(0).getBody()), UserDTO.class);
-                    if (userDTO == null || userDTO.getUserId() == null) {
-                        LOGGER.error("用户id为空, msg:{}", new String(msgs.get(0).getBody()));
-                        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+                    UserCacheAsyncDeleteDTO userCacheAsyncDeleteDTO = JSON.parseObject(new String(msgs.get(0).getBody()), UserCacheAsyncDeleteDTO.class);
+                    if (CacheAsyncDeleteCode.USER_INFO_DELETE.getCode() == userCacheAsyncDeleteDTO.getCode()) {
+                        Long userId = JSON.parseObject(userCacheAsyncDeleteDTO.getJson()).getLong("userId");
+                        redisTemplate.delete(userProviderCacheKeyBuilder.buildUserInfoKey(userId));
+                    }else if (CacheAsyncDeleteCode.USER_TAG_DELETE.getCode() == userCacheAsyncDeleteDTO.getCode()) {
+                        Long userId = JSON.parseObject(userCacheAsyncDeleteDTO.getJson()).getLong("userId");
+                        redisTemplate.delete(userProviderCacheKeyBuilder.buildTagKey(userId));
                     }
-                    redisTemplate.delete(userProviderCacheKeyBuilder.buildUserInfoKey(userDTO.getUserId()));
-                    LOGGER.info("延迟删除处理，userDTO is {}", userDTO);
                     return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
                 }
             });
@@ -63,7 +67,6 @@ public class RocketMQConsumerConfig implements InitializingBean {
         } catch (MQClientException e) {
             throw new RuntimeException(e);
         }
-
     }
     @Override
     public void afterPropertiesSet() throws Exception {

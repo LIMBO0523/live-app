@@ -37,3 +37,6 @@ rocketmq:
   consumer:
     name-server: wsl:9876
     group-name: ${spring.application.name}
+
+redisson:
+  address: ${data.redis.host}:${data.redis.port}

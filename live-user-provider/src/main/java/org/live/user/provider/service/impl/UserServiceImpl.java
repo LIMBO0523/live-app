@@ -3,17 +3,16 @@ package org.live.user.provider.service.impl;
 import com.alibaba.fastjson2.JSON;
 import com.google.common.collect.Maps;
 import jakarta.annotation.Resource;
-import org.apache.rocketmq.client.exception.MQBrokerException;
-import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
 import org.live.common.interfaces.ConvertBeanUtils;
+import org.live.user.dto.UserCacheAsyncDeleteDTO;
 import org.live.user.dto.UserDTO;
 import org.live.user.provider.dao.mapper.IUserMapper;
 import org.live.user.provider.dao.po.UserPO;
 import org.live.user.provider.service.IUserService;
+import org.live.user.provider.utils.TimeUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -21,14 +20,13 @@ import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+
+import static org.live.user.constants.UserProviderTopicNames.CACHE_ASYNC_DELETE_TOPIC;
+import static org.live.user.provider.utils.TimeUtils.createRandomExpireTime;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -68,9 +66,15 @@ public class UserServiceImpl implements IUserService {
         userMapper.updateById(ConvertBeanUtils.convert(userDTO, UserPO.class));
         String key = userProviderCacheKeyBuilder.buildUserInfoKey(userDTO.getUserId());
         redisTemplate.delete(key);
+        UserCacheAsyncDeleteDTO userCacheAsyncDeleteDTO = new UserCacheAsyncDeleteDTO();
+        userCacheAsyncDeleteDTO.setCode(0);
+        Map<String, Object> jsonParam = new HashMap<>();
+        jsonParam.put("userId", userDTO.getUserId());
+        userCacheAsyncDeleteDTO.setJson(JSON.toJSONString(jsonParam));
         Message message = new Message();
-        message.setBody(JSON.toJSONString(userDTO).getBytes());
-        message.setTopic("user-update-cache");
+
+        message.setBody(JSON.toJSONString(userCacheAsyncDeleteDTO).getBytes());
+        message.setTopic(CACHE_ASYNC_DELETE_TOPIC);
         // 延迟级别，1代表延迟一秒钟发送
         message.setDelayTimeLevel(1);
         try {
@@ -129,7 +133,7 @@ public class UserServiceImpl implements IUserService {
                 @Override
                 public <K, V> Object execute(RedisOperations<K, V> operations) throws DataAccessException {
                     for (String redisKey : saveCacheKey.keySet()) {
-                        operations.expire((K) redisKey, createRandomExpireTime(), TimeUnit.MINUTES);
+                        operations.expire((K) redisKey, TimeUtils.createRandomExpireTime(30), TimeUnit.MINUTES);
                     }
                     return null;
                 }
@@ -138,11 +142,6 @@ public class UserServiceImpl implements IUserService {
         }
 
         return dbQueryResult.stream().collect(Collectors.toMap(UserDTO::getUserId, userDTO -> userDTO));
-    }
-
-    private int createRandomExpireTime() {
-        int time = ThreadLocalRandom.current().nextInt(1000);
-        return time + 60 * 30;
     }
 
 }
