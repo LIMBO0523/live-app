@@ -5,7 +5,7 @@ import jakarta.annotation.Resource;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
-import org.live.common.interfaces.ConvertBeanUtils;
+import org.live.common.interfaces.utils.ConvertBeanUtils;
 import org.live.user.constants.UserTagFieldNameConstants;
 import org.live.user.constants.UserTagsEnum;
 import org.live.user.dto.UserCacheAsyncDeleteDTO;
@@ -36,9 +36,7 @@ public class UserTagServiceImpl implements IUserTagService {
     @Resource
     private IUserTagMapper userTagMapper;
     @Resource
-    private RedisTemplate<String, String> redisTemplate;
-    @Resource
-    private RedisTemplate<String, UserTagDTO> userTagDTORedisTemplate;
+    private RedisTemplate<String, UserTagDTO> redisTemplate; // <String, Object> redisTemplate;
     @Resource
     private UserProviderCacheKeyBuilder userProviderCacheKeyBuilder;
     @Resource
@@ -123,7 +121,7 @@ public class UserTagServiceImpl implements IUserTagService {
      */
     private void deleteUserTagFromRedis(Long userId) {
         String redisKey = userProviderCacheKeyBuilder.buildTagKey(userId);
-        userTagDTORedisTemplate.delete(redisKey);
+        redisTemplate.delete(redisKey);
         UserCacheAsyncDeleteDTO userCacheAsyncDeleteDTO = new UserCacheAsyncDeleteDTO();
         userCacheAsyncDeleteDTO.setCode(1);
         Map<String, Object> jsonParam = new HashMap<>();
@@ -148,14 +146,14 @@ public class UserTagServiceImpl implements IUserTagService {
      */
     private UserTagDTO queryByUserIdFromRedis(Long userId) {
         String redisKey = userProviderCacheKeyBuilder.buildTagKey(userId);
-        UserTagDTO userTagDTO = userTagDTORedisTemplate.opsForValue().get(redisKey);
+        UserTagDTO userTagDTO = redisTemplate.opsForValue().get(redisKey);
         if (userTagDTO != null) {
             return userTagDTO;
         }
         UserTagPO userTagPO = userTagMapper.selectById(userId);
         if (userTagPO != null) {
             userTagDTO = ConvertBeanUtils.convert(userTagPO, UserTagDTO.class);
-            userTagDTORedisTemplate.opsForValue().set(redisKey, userTagDTO, TimeUtils.createRandomExpireTime(60), TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(redisKey, userTagDTO, TimeUtils.createRandomExpireTime(60), TimeUnit.MINUTES);
             return userTagDTO;
         }
         return null;

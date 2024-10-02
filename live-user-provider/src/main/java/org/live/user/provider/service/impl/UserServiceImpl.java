@@ -6,7 +6,7 @@ import jakarta.annotation.Resource;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
-import org.live.common.interfaces.ConvertBeanUtils;
+import org.live.common.interfaces.utils.ConvertBeanUtils;
 import org.live.user.dto.UserCacheAsyncDeleteDTO;
 import org.live.user.dto.UserDTO;
 import org.live.user.provider.dao.mapper.IUserMapper;
@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import static org.live.user.constants.UserProviderTopicNames.CACHE_ASYNC_DELETE_TOPIC;
-import static org.live.user.provider.utils.TimeUtils.createRandomExpireTime;
 
 @Service
 public class UserServiceImpl implements IUserService {
