@@ -4,7 +4,7 @@ import com.alibaba.fastjson2.JSON;
 import jakarta.annotation.Resource;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.common.message.Message;
-import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
+import org.idea.live.framework.redis.starter.key.builder.UserProviderCacheKeyBuilder;
 import org.live.common.interfaces.utils.ConvertBeanUtils;
 import org.live.user.constants.UserTagFieldNameConstants;
 import org.live.user.constants.UserTagsEnum;

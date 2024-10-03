@@ -1,2 +1,4 @@
 org.idea.live.framework.redis.starter.config.RedisConfig
-org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder
+org.idea.live.framework.redis.starter.key.builder.UserProviderCacheKeyBuilder
+org.idea.live.framework.redis.starter.key.builder.MsgProviderCacheKeyBuilder
+org.idea.live.framework.redis.starter.key.builder.AccountProviderCacheKeyBuilder

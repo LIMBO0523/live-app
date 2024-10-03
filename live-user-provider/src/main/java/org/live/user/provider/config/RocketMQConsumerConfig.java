@@ -9,7 +9,7 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
-import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
+import org.idea.live.framework.redis.starter.key.builder.UserProviderCacheKeyBuilder;
 import org.live.user.constants.CacheAsyncDeleteCode;
 import org.live.user.dto.UserCacheAsyncDeleteDTO;
 import org.slf4j.Logger;

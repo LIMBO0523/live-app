@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import jakarta.annotation.Resource;
 import org.apache.rocketmq.client.producer.MQProducer;
 import org.apache.rocketmq.common.message.Message;
-import org.idea.live.framework.redis.starter.key.UserProviderCacheKeyBuilder;
+import org.idea.live.framework.redis.starter.key.builder.UserProviderCacheKeyBuilder;
 import org.live.common.interfaces.utils.ConvertBeanUtils;
 import org.live.user.dto.UserCacheAsyncDeleteDTO;
 import org.live.user.dto.UserDTO;

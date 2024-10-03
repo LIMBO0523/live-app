@@ -20,14 +20,20 @@
         <module>live-id-generate-interface</module>
         <module>live-id-generate-provider</module>
         <module>live-gateway</module>
+        <module>live-msg-provider</module>
+        <module>live-msg-interface</module>
+        <module>live-account-interface</module>
+        <module>live-account-provider</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mysql.version>8.0.13</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
+        <spring-cloud-boostrap.version>3.0.2</spring-cloud-boostrap.version>
         <sptring-boot.version>3.0.4</sptring-boot.version>
+        <dubbo.version>3.2.0-beta.3</dubbo.version>
         <arthus.zip.address>bin</arthus.zip.address>
     </properties>
 
