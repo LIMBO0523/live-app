@@ -2,7 +2,6 @@ package org.live.user.provider.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import jakarta.annotation.Resource;
-import org.apache.commons.lang3.StringUtils;
 import org.live.common.interfaces.enums.CommonStatusEum;
 import org.live.common.interfaces.utils.ConvertBeanUtils;
 import org.live.common.interfaces.utils.DESUtils;
@@ -24,14 +23,13 @@ public class UserPhoneServiceImpl implements IUserPhoneService {
     private IUserPhoneMapper userPhoneMapper;
 
     @Override
-    public UserPhoneDTO insert(String phone, Long userId) {
+    public boolean insert(String phone, Long userId) {
         UserPhonePO userPhonePO = new UserPhonePO();
         userPhonePO.setUserId(userId);
         userPhonePO.setPhone(DESUtils.encrypt(phone));
         userPhonePO.setStatus(CommonStatusEum.VALID_STATUS.getCode());
-        userPhoneMapper.insert(userPhonePO);
-        return ConvertBeanUtils.convert(userPhonePO,
-                UserPhoneDTO.class);
+        int effect = userPhoneMapper.insert(userPhonePO);
+        return effect > 0;
     }
 
     @Override

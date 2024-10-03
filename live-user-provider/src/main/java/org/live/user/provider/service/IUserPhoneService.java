@@ -17,7 +17,7 @@ public interface IUserPhoneService {
      * @param userId
      * @return
      */
-    UserPhoneDTO insert(String phone, Long userId);
+    boolean insert(String phone, Long userId);
 
     /**
      * 更具用户 id 查询手机信息

@@ -19,7 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -76,8 +75,14 @@ public class UserPhoneRpcImpl implements IUserPhoneRpc {
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(newUserId);
         userDTO.setNickName("用户-" + userDTO.getUserId());
-        userService.insert(userDTO);
-        userPhoneService.insert(phone, newUserId);
+        boolean effect = userService.insert(userDTO);
+        if (!effect) {
+            LOGGER.error("注册用户失败，userId = {}", newUserId);
+        }
+        effect = userPhoneService.insert(phone, newUserId);
+        if (!effect) {
+            LOGGER.error("注册手机号失败，userId = {}", newUserId);
+        }
         UserRegisterBO userRegisterBO = new UserRegisterBO();
         userRegisterBO.setPhone(phone);
         userRegisterBO.setUserId(newUserId);
